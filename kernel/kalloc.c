@@ -83,7 +83,7 @@ kalloc(void)
 
 
 uint64 
-nfree(void)
+get_nfree(void)
 {
   struct run* r;
   int byteCount = 0;

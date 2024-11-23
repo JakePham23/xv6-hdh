@@ -9,7 +9,7 @@ void testcall() {
         printf("testcall: Failed to get system info\n");
         exit(1);
     }
-    printf("testcall: Number of processes: %lu\n\n", info.nproc);  // Sửa thành %lu
+    printf("testcall: Number of processes: %lu\n\n", info.nproc);  
 }
 
 void testmem() {
@@ -18,7 +18,7 @@ void testmem() {
         printf("testmem: Failed to get system info\n\n");
         exit(1);
     }
-    printf("testmem: Number of free memory pages before allocation: %lu\n", info.freemem);  // Sửa thành %lu
+    printf("testmem: Number of free memory pages before allocation: %lu\n", info.freemem); 
     
     char *p = malloc(4096); 
     if (p == 0) {
@@ -31,7 +31,7 @@ void testmem() {
         free(p); 
         exit(1);
     }
-    printf("testmem: Number of free memory pages after allocation: %lu\n", info.freemem);  // Sửa thành %lu
+    printf("testmem: Number of free memory pages after allocation: %lu\n", info.freemem); 
     
     strcpy(p, "Memory test passed!");
     printf("testmem: %s\n\n", p);
@@ -44,8 +44,7 @@ void testproc() {
         printf("testproc: Failed to get system info\n\n");
         exit(1);
     }
-    printf("testproc: Number of processes before fork: %lu\n", info.nproc);  // Sửa thành %lu
-    
+    printf("testproc: Number of processes before fork: %lu\n", info.nproc);
     int pid = fork(); 
     if (pid < 0) {
         printf("testproc: Fork failed\n");
@@ -58,7 +57,7 @@ void testproc() {
             printf("testproc: Failed to get system info after fork\n\n");
             exit(1);
         }
-        printf("testproc: Number of processes after fork: %lu\n\n", info.nproc);  // Sửa thành %lu
+        printf("testproc: Number of processes after fork: %lu\n\n", info.nproc);  
     }
 }
 
@@ -66,10 +65,10 @@ void testproc() {
 int main(int argc, char *argv[]) {
     printf("Starting sysinfotest...\n\n");
     
-    testcall(); // Gọi hàm kiểm tra system call
-    testmem();  // Gọi hàm kiểm tra bộ nhớ
-    testproc(); // Gọi hàm kiểm tra tiến trình
+    testcall();
+    testmem();  
+    testproc();
 
-    printf("sysinfotest: OK\n"); // Thông báo tất cả các bài kiểm tra thành công
+    printf("sysinfotest: OK\n"); 
     exit(0);
 }

@@ -26,7 +26,7 @@ extern char trampoline[]; // trampoline.S
 // must be acquired before any p->lock.
 struct spinlock wait_lock;
 
-uint64 nproc(void) {
+uint64 get_nproc(void) {
   int proCount = 0;
   struct proc* p;
   for (p = proc; p < &proc[NPROC]; p++) {

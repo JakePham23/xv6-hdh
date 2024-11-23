@@ -101,8 +101,8 @@ uint64 sys_sysinfo(void)
   struct proc* p = myproc();
   argaddr(0, &addr);
 
-  info.freemem = nfree();
-  info.nproc = nproc();
+  info.freemem = get_nfree();
+  info.nproc = get_nproc();
   if (copyout(p->pagetable, addr, (char*) &info, sizeof(info)) < 0) 
     return -1;
   return 0;
