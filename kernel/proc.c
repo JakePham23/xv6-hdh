@@ -295,6 +295,7 @@ fork(void)
 
   // Allocate process.
   if((np = allocproc()) == 0){
+    printf("fork: allocproc failed\n");
     return -1;
   }
 
@@ -332,6 +333,7 @@ fork(void)
   np->state = RUNNABLE;
   release(&np->lock);
 
+  np->trace_mask = p->trace_mask;
   return pid;
 }
 

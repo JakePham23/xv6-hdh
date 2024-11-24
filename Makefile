@@ -196,6 +196,7 @@ UPROGS=\
 	$U/_zombie\
 	$U/_xargs\
 	$U/_sysinfotest\
+	$U/_trace\
 
 
 ifeq ($(LAB),syscall)
